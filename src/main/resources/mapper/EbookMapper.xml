@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.EbookMapper">
+
+
+    <select id="findAll" resultType="com.qf.pojo.EbookEntry">
+        select
+          e.id,e.title,e.summary,e.uploaduser, e.createdate
+        from
+         ebook_entry e
+         order by createdate desc
+    </select>
+    <select id="findByName" parameterType="integer" resultType="com.qf.pojo.EbookEntry">
+         select
+          e.id,e.title,e.summary,e.uploaduser, e.createdate
+        from
+         ebook_entry e left join ebook_category c on e.category_id=c.id
+         where id=#{id}
+         order by createdate desc
+    </select>
+
+
+</mapper>

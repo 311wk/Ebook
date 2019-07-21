@@ -17,4 +17,10 @@ public interface EbookMapper {
 
     //按照entry删除书
     Integer delete(Integer id);
+
+    //按照id更新一波
+    Integer update(EbookEntry ebookEntry);
+
+    //新增
+    Integer add(EbookEntry ebookEntry);
 }

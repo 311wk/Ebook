@@ -3,6 +3,38 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.mapper.EbookMapper">
+    <insert id="add" parameterType="EbookEntry">
+        insert into
+          ebook_entry
+        (category_id,title,summary,uploaduser,createdate)
+          values
+        (#{categoryId},#{title},#{summary},#{uploaduser},#{createdate})
+    </insert>
+    <update id="update" parameterType="EbookEntry">
+        update
+          ebook_entry
+        <set>
+            <if test="categoryId != null and categoryId != ''">
+                category_id=#{categoryId},
+            </if>
+            <if test="title != null and title !=''">
+                title=#{title},
+            </if>
+            <if test="summary != null and summary !=''">
+                summary=#{summary},
+            </if>
+            <if test="uploaduser != null and uploaduser !=''">
+                uploaduser=#{uploaduser},
+            </if>
+            <if test="createdate != null and createdate !=''">
+                createdate=#{createdate},
+            </if>
+        </set>
+        where
+          id=#{id}
+
+    </update>
+
     <delete id="delete" parameterType="integer">
         delete from ebook_entry where id=#{id}
     </delete>

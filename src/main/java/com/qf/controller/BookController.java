@@ -17,8 +17,14 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
 
-    @GetMapping("list")
-    public String list(){
+    @Autowired
+    private EbookService ebookService;
+
+    @GetMapping("/list")
+    public String list(Model model){
+
+        List<EbookEntry> list = ebookService.findAll();
+        model.addAttribute("ebook", list);
 
         return "book_list";
     }

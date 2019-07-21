@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,5 +34,29 @@ public class EbookServiceImplTest extends AcTests {
         Integer count = ebookService.delete(3);
         Assert.assertEquals(new Integer(1), count);
 
+    }
+
+    @Test
+    @Transactional
+    public void update(){
+        EbookEntry ebookEntry = new EbookEntry();
+        ebookEntry.setId(2);
+        ebookEntry.setCategoryId(2);
+        ebookEntry.setSummary("飞翔牛逼");
+        Integer count = ebookService.updateById(ebookEntry);
+
+        Assert.assertEquals(new Integer(1), count);
+    }
+
+    @Test
+    @Transactional
+    public void add(){
+        EbookEntry ebookEntry = new EbookEntry();
+        ebookEntry.setCategoryId(1);
+        ebookEntry.setTitle("光头强");
+        ebookEntry.setSummary("光头强又来砍树了");
+        ebookEntry.setCreatedate(new Date());
+        Integer count = ebookService.add(ebookEntry);
+        Assert.assertEquals(new Integer(1),count);
     }
 }

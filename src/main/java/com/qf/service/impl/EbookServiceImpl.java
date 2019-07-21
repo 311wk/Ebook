@@ -28,4 +28,14 @@ public class EbookServiceImpl implements EbookService {
     public Integer delete(Integer id) {
         return ebookMapper.delete(id);
     }
+
+    @Override
+    public Integer updateById(EbookEntry ebookEntry) {
+        return ebookMapper.update(ebookEntry);
+    }
+
+    @Override
+    public Integer add(EbookEntry ebookEntry) {
+        return ebookMapper.add(ebookEntry);
+    }
 }

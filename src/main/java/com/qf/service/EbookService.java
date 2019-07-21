@@ -12,4 +12,7 @@ public interface EbookService {
 
     //查询所有的信息
     List<EbookEntry> findAll();
+
+    //按照id查询
+    Integer delete(Integer id);
 }

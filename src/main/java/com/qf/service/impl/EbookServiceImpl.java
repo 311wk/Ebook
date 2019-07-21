@@ -20,6 +20,12 @@ public class EbookServiceImpl implements EbookService {
 
     @Override
     public List<EbookEntry> findAll() {
+
         return ebookMapper.findAll();
+    }
+
+    @Override
+    public Integer delete(Integer id) {
+        return ebookMapper.delete(id);
     }
 }

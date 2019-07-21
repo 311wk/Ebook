@@ -51,13 +51,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${pageInfo.list}" var="item">
+                <c:forEach items="${ebook}" var="item">
                     <tr class="success">
                         <td style="width:20%;">
-                                ${item.name }
+                                ${item.id }
                         </td>
                         <td>
-                                ${item.price }
+                                ${item.title }
                         </td>
                         <td>
                             <fmt:formatDate value="${item.productionDate}" pattern="yyyy-MM-dd"/>

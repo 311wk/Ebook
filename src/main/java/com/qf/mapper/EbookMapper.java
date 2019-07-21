@@ -14,4 +14,7 @@ public interface EbookMapper {
 
     //根据分类查询图书列表
     List<EbookEntry> findByName(Integer id);
+
+    //按照entry删除书
+    Integer delete(Integer id);
 }
